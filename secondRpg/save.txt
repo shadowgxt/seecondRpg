@@ -1,0 +1,1 @@
+null;mage;90;170;2;3;9;6;0.0;1.0;commonStaff;commonRobe;0;
