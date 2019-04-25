@@ -12,6 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import rpg.Character;
+import rpg.Claass;
+import rpg.Item;
+import rpg.SaveLoad;
 
 import javax.swing.JButton;
 
@@ -49,8 +52,12 @@ public class WhichHeroClaass extends JFrame {
 		btnNewButton_0.setFont(new Font("Monotype Corsiva", Font.PLAIN, 70));
 		btnNewButton_0.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rpg.Character.chooseClaass(1);
-				//otwarcie g這wnego menu
+				rpg.Character.setHeroClass(Claass.knight);
+				rpg.Character.setFirstStat();
+				rpg.Character.giveItem(Item.commonSwordShield, Item.commonDualSword, Item.commonTwoSword, Item.commonHeavyArmor);
+				rpg.Character.firstArmorEquip();
+				SaveLoad.save();
+				views.ChangeWeapon.main();
 				dispose();
 			}
 		});
@@ -65,8 +72,12 @@ public class WhichHeroClaass extends JFrame {
 		btnNewButton_1.setFont(new Font("Monotype Corsiva", Font.PLAIN, 70));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rpg.Character.chooseClaass(2);
-				//otwarcie g這wnego menu
+				rpg.Character.setHeroClass(Claass.ranger);
+				rpg.Character.setFirstStat();
+				rpg.Character.giveItem(Item.commonSwordShield, Item.commonDualSword, Item.commonTwoSword, Item.commonHeavyArmor);
+				rpg.Character.firstArmorEquip();
+				SaveLoad.save();
+				views.ChangeWeapon.main();
 				dispose();
 			}
 		});
@@ -79,8 +90,12 @@ public class WhichHeroClaass extends JFrame {
 		btnNewButton_2.setFont(new Font("Monotype Corsiva", Font.PLAIN, 70));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rpg.Character.chooseClaass(3);
-				//otwarcie g這wnego menu
+				rpg.Character.setHeroClass(Claass.mage);
+				rpg.Character.setFirstStat();
+				rpg.Character.giveItem(Item.commonSwordShield, Item.commonDualSword, Item.commonTwoSword, Item.commonHeavyArmor);
+				rpg.Character.firstArmorEquip();
+				SaveLoad.save();
+				views.ChangeWeapon.main();
 				dispose();
 			}
 		});
@@ -93,8 +108,12 @@ public class WhichHeroClaass extends JFrame {
 		btnNewButton_3.setFont(new Font("Monotype Corsiva", Font.PLAIN, 70));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rpg.Character.chooseClaass(4);
-				//otwarcie g這wnego menu
+				rpg.Character.setHeroClass(Claass.viking);
+				rpg.Character.setFirstStat();
+				rpg.Character.giveItem(Item.commonSwordShield, Item.commonDualSword, Item.commonTwoSword, Item.commonHeavyArmor);
+				rpg.Character.firstArmorEquip();
+				SaveLoad.save();
+				views.ChangeWeapon.main();
 				dispose();
 			}
 		});

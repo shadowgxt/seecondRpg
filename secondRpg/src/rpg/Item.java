@@ -2,19 +2,19 @@ package rpg;
 
 public enum Item {
 	//knight weapon
-commonSwordShield(1, 10, 10,0,0,0,0,5,Claass.knight,Rarity.common, ItemType.weapon),
+commonSwordShield(1, 10, 10,0,0,0,0,6,Claass.knight,Rarity.common, ItemType.weapon),
 uncommonSwordShield(5, 10, 10,0,0,0,0,5,Claass.knight,Rarity.uncommon, ItemType.weapon),
 rareSwordShield(10, 10, 10,0,0,0,0,5,Claass.knight,Rarity.rare, ItemType.weapon),
 specialSwordShield(15, 10, 10,0,0,0,0,5,Claass.knight,Rarity.special, ItemType.weapon),
 legendarySwordShield(20, 10, 10,0,0,0,0,5,Claass.knight,Rarity.legendary, ItemType.weapon),
 mythicalSwordShield(25, 10, 10,0,0,0,0,5,Claass.knight,Rarity.mythical, ItemType.weapon),
-commonDualSword(1, 10, 10,0,0,0,0,5,Claass.knight,Rarity.common, ItemType.weapon),
+commonDualSword(1, 15, 15,0,0,0,0,7,Claass.knight,Rarity.common, ItemType.weapon),
 uncommonDualSword(5, 10, 10,0,0,0,0,5,Claass.knight,Rarity.uncommon, ItemType.weapon),
 rareDualSword(10, 10, 10,0,0,0,0,5,Claass.knight,Rarity.rare, ItemType.weapon),
 specialDualSword(15, 10, 10,0,0,0,0,5,Claass.knight,Rarity.special, ItemType.weapon),
 legendaryDualSword(20, 10, 10,0,0,0,0,5,Claass.knight,Rarity.legendary, ItemType.weapon),
 mythicalDualSword(25, 10, 10,0,0,0,0,5,Claass.knight,Rarity.mythical, ItemType.weapon),
-commonTwoSword(1, 10, 10,0,0,0,0,5,Claass.knight,Rarity.common, ItemType.weapon),
+commonTwoSword(1, 20, 20,0,0,0,0,8,Claass.knight,Rarity.common, ItemType.weapon),
 uncommonTwoSword(5, 10, 10,0,0,0,0,5,Claass.knight,Rarity.uncommon, ItemType.weapon),
 rareTwoSword(10, 10, 10,0,0,0,0,5,Claass.knight,Rarity.rare, ItemType.weapon),
 specialTwoSword(15, 10, 10,0,0,0,0,5,Claass.knight,Rarity.special, ItemType.weapon),
@@ -129,27 +129,27 @@ nakedBody(1,0,0,0,0,0,0,0,Claass.all,Rarity.common, ItemType.armor);
 		
 	}
 	
-	public static void showFullItemDescription(Item itemName){
-		System.out.println(itemName + " posiada nastêpuj¹ce statystyki: ");
-		System.out.print("LVL: " + itemName.LVL + "\n");
-		System.out.print(" HP: " + itemName.HP + " ");
-		System.out.print(" MP: " + itemName.MP + " ");
-		System.out.print(" S: " + itemName.S + " ");
-		System.out.print(" A: " + itemName.A + " ");
-		System.out.print(" I: " + itemName.I + " ");
-		System.out.print(" L: " + itemName.L + " ");
-		System.out.print("\n" + " Sell price: " + itemName.gold + " gold coins\n");
-		System.out.print(" Rarity: " + itemName.raritys + "\n");
-		System.out.print(" Typ: " + itemName.itemTypes + "\n");
-		System.out.print(" Class: " + itemName.itemClaass + "\n");	
+	public static String showFullItemDescription(Item itemName){
+		return(itemName + " \nposiada nastêpuj¹ce statystyki: \n" +
+		"LVL: " + itemName.LVL + "\n" +
+		" HP: " + itemName.HP + "\n" +
+		" MP: " + itemName.MP + "\n" +
+		" S: " + itemName.S + " " +
+		" A: " + itemName.A + " " +
+		" I: " + itemName.I + " " +
+		" L: " + itemName.L + " " +
+		"\n" + " Sell price: " + itemName.gold + " gold coins\n" +
+		" Rarity: " + itemName.raritys + "\n" +
+		" Typ: " + itemName.itemTypes + "\n" +
+		" Class: " + itemName.itemClaass + "\n");	
 	}
 	
-	public static void showShortItemDescription(Item itemName){
-		System.out.println(itemName + " w skrocie: ");
-		System.out.print("LVL: " + itemName.LVL);
-		System.out.print(" Sell price: " + itemName.gold + " gold coins");
-		System.out.print(" Rarity: " + itemName.raritys);
-		System.out.print(" Typ: " + itemName.itemTypes);
-		System.out.println(" Class: " + itemName.itemClaass);	
+	public static String showShortItemDescription(Item itemName){
+		return (itemName + " w skrocie: \n" + 
+		"LVL: " + itemName.LVL +
+		"\n Sell price: " + itemName.gold + " gold coins" +
+		"\n Rarity: " + itemName.raritys +
+		"\n Typ: " + itemName.itemTypes +
+		"\n Class: " + itemName.itemClaass);	
 	}
 }

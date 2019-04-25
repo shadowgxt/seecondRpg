@@ -8,39 +8,55 @@ public class Fight extends Character {
 	}
 
 	static double monsterLVL = 0;
+	static int thisHeroHP = Character.heroHP;
+	static int allGold = 0;
+	
 	static Random rand = new Random();	
 	public static void main(int manyBattles) throws InterruptedException {
-		for (int ll = 0; ll<manyBattles; ll++){
+		if (manyBattles == 1){
 			battle();
+			if (thisHeroHP>0) getGold(allGold);
 		}
-	}
+		else if (manyBattles>1){
+			int ll = 0;
+			do {
+				battle();
+			}while ((ll<manyBattles) && (thisHeroHP>0));
+		if (thisHeroHP>0) getGold(allGold);
+		//dodanie przydzielanie przeedmiotów
+		}}
+	
 
 
 	static void battle () throws InterruptedException{
 		Monster oponent = createMonster();
-		int thisHeroHP = Character.heroHP;
-		int licznik =0;
 		do {int thisAttack = Fight.attack();
+		
+		
 			if (thisAttack>oponent.monsterDEF)
-			oponent.monsterHP= (oponent.monsterHP) + (oponent.monsterDEF - Fight.attack());
+			oponent.monsterHP= (oponent.monsterHP) + (oponent.monsterDEF - thisAttack);
 			thisHeroHP = thisHeroHP - oponent.monsterATT ;
 			System.out.println("thisHeroHP: "+thisHeroHP +" thisHeroHP: "+ thisHeroHP +" oponent.monsterATT: "+ oponent.monsterATT);
 			System.out.println(thisAttack);
 			System.out.println(thisHeroHP);
 			System.out.println(oponent.monsterHP);
-			//Thread.sleep(1000);
-			//if (licznik>100) break;
 		}while(oponent.monsterHP>=0 && thisHeroHP>=0);
 		if (thisHeroHP<=0) {
 			System.out.println("I think you died, maybe not all, but now yes, you are dead");
 		}
 		else if (oponent.monsterHP<=0) {
 			getEXP ((int) oponent.monsterEXP); 
-			getGold();
 			System.out.println("You have won and get " + oponent.monsterEXP + " EXP from monster.");
+			allGold= allGold + randGold();
 		}
 		else System.out.println("Co sie do cholery jasnej niby stalo?");
 		
+	}
+	
+	final static int randGold () {
+		Random rand = new Random();
+		int m = rand.nextInt(9);
+		return (int) ((m+1) * (Character.heroLVL*(Math.pow(1.3, heroLVL))));
 	}
 	public static Monster createMonster(){
 		Monster monsterek = Monster.getRandomMonster();

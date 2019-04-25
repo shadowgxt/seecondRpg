@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ChangeName extends JFrame {
-	String newHeroName;
 	private JPanel contentPane;
 	private JTextField textField;
 
@@ -36,7 +35,6 @@ public class ChangeName extends JFrame {
 	 * Create the frame.
 	 */
 	public ChangeName() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 720);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -47,8 +45,7 @@ public class ChangeName extends JFrame {
 		JButton btnChangeName = new JButton("CHANGE NAME");
 		btnChangeName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rpg.Character.setHeroName(newHeroName);
-				System.out.println(textField.getText());
+				rpg.Character.setHeroName(textField.getText());
 				WhichHeroClaass.main();
 				dispose();
 				

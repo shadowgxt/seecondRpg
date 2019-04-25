@@ -43,7 +43,6 @@ public class StartMenu extends JFrame{
 		frmMenusTart = new JFrame();
 		frmMenusTart.setTitle("Menu Start");
 		frmMenusTart.setBounds(100, 100, 1280, 720);
-		frmMenusTart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMenusTart.getContentPane().setLayout(null);
 		
 		txtChooseOption = new JTextField();
@@ -56,33 +55,30 @@ public class StartMenu extends JFrame{
 		frmMenusTart.getContentPane().add(txtChooseOption);
 		txtChooseOption.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("New Game");
-		btnNewButton_1.setBackground(Color.BLACK);
-		btnNewButton_1.setForeground(Color.RED);
-		btnNewButton_1.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton newGame = new JButton("New Game");
+		newGame.setBackground(Color.BLACK);
+		newGame.setForeground(Color.RED);
+		newGame.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		newGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Character.setHeroName();
 				frmMenusTart.dispose();
-			}
-
-		});
-		btnNewButton_1.setBounds(515, 250, 250, 60);
-		frmMenusTart.getContentPane().add(btnNewButton_1);
+			}});
+		newGame.setBounds(515, 250, 250, 60);
+		frmMenusTart.getContentPane().add(newGame);
 		
-		JButton btnNewButton = new JButton("Load Game");
-		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setForeground(Color.RED);
-		btnNewButton.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton loadGame = new JButton("Load Game");
+		loadGame.setBackground(Color.BLACK);
+		loadGame.setForeground(Color.RED);
+		loadGame.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		loadGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.SaveLoad.load();
-				//otwarcie g³ownego menu
+				views.MainMenu.main();
 				frmMenusTart.dispose();
-			}
-		});
-		btnNewButton.setBounds(515, 400, 250, 60);
-		frmMenusTart.getContentPane().add(btnNewButton);
+			}});
+		loadGame.setBounds(515, 400, 250, 60);
+		frmMenusTart.getContentPane().add(loadGame);
 		
 		
 	}

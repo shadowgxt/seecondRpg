@@ -15,7 +15,7 @@ public class SaveLoad extends Character{
 	static File save = new File("save.txt");
 
 	public static void main(String[] args) {
-
+	
     
 	}
 	
@@ -33,7 +33,7 @@ public class SaveLoad extends Character{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		  save.println(
+		  save.print(
 				  Character.getHeroName() + ";"+
 				  Character.heroClaass+";"+
 				  Character.heroHP+";"+
@@ -46,15 +46,19 @@ public class SaveLoad extends Character{
 				  Character.heroLVL+";"+
 				  Character.eWeapon+";"+
 				  Character.eArmor+";"+
-				  Character.gold+";"
+				  Character.gold+";"+
+				  bag.size()+";"
 				  ); //nie wiem jak zapisaæ ca³a listêe przedmiotów i póieeeej odczytaæ
+		  for(int iii =0;iii<Character.bag.size();iii++){
+			  save.print(Character.bag.get(iii) + ";");
+		  }
 		  save.close();
 		  System.out.println("!GAME SAVED!");
 		
 	}
 	
 	static public void load () {
-		File save = new File("save.txt");
+		save = new File("save.txt");
 		Scanner in = null;
 		try {
 			in = new Scanner(save);
@@ -75,6 +79,10 @@ public class SaveLoad extends Character{
 			  if (split[11].equalsIgnoreCase("null")) System.out.println("You don't have any armor!");
 			  else Character.eArmor = Item.valueOf(split[11]);
 			  Character.gold = Integer.parseInt(split[12]);
+			  int bagSize = Integer.parseInt(split[13]);
+			  for(int iii =14; iii<bagSize+14; iii++){
+				  Character.bag.add(Item.valueOf(split[iii]));
+			  }
 		      
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -84,4 +92,6 @@ public class SaveLoad extends Character{
 		System.out.println("!GAME LOAD!");
 		Character.heroInfo();
 	}
+
+
 }

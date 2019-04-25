@@ -1,5 +1,6 @@
 package rpg;
 
+import java.lang.management.GarbageCollectorMXBean;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -9,50 +10,22 @@ import java.util.Scanner;
 public class Character extends main{
 
 	public Character(String[] args) {
-		super();
+
 	}
 
-	private static String heroName;
+	public static String heroName;
 	static Claass heroClaass;
 	static int heroHP,heroMP,heroS,heroA,heroI,heroL;
 	static double heroEXP=0;
 	static double heroLVL=1;
 	static Item eWeapon = Item.fists;
 	static Item eArmor = Item.nakedBody;
-	static List<Item> bag = new ArrayList <Item>();
+	static public List<Item> bag = new ArrayList <Item>();
 	static int gold;
 	
 	
-	public final static void chooseClaass(int mm){
-		switch (mm) {
-		case 1: heroClaass=Claass.knight;
-		setFirstStat();
-		giveItem(Item.commonSwordShield, Item.commonDualSword, Item.commonTwoSword, Item.commonHeavyArmor);
-		equipWeapon();
-		equipArmor();
-			break;
-		case 2: heroClaass=Claass.ranger;
-		setFirstStat();
-		giveItem(Item.commonBow, Item.commonDagger, Item.commonCrossBow, Item.commonLightArmor);
-		equipWeapon();
-		equipArmor();
-			break;
-		case 3: heroClaass=Claass.mage;
-		setFirstStat();
-		giveItem(Item.commonWand, Item.commonScepter, Item.commonStaff, Item.commonRobe);
-		equipWeapon();
-		equipArmor();
-			break;
-		case 4:	heroClaass=Claass.viking;
-		setFirstStat();
-		giveItem(Item.commonTwoAxe, Item.commonDualAxe, Item.commonAxeShield, Item.commonMidArmor);
-		equipWeapon();
-		equipArmor();
-			break;
-		}
-		SaveLoad.save();
-	}
-	final static void setFirstStat(){
+	
+	public final static void setFirstStat(){
 		heroHP=heroClaass.HP;
 		heroMP=heroClaass.MP;
 		heroS=heroClaass.S;
@@ -73,38 +46,24 @@ public class Character extends main{
 			heroLVL++;
 		}
 	}
-	final static void getGold (){
-	Random rand = new Random();
-	double m = rand.nextDouble();
-	Character.gold = (int) (Character.gold + (((m+0.1) *10) * (Character.heroLVL*(Math.pow(1.3, heroLVL)))));
+	final static void getGold (int allGold){
+		Character.gold = Character.gold + allGold;
 	}
 	
-	final static void giveItem(Item item0, Item...items){
+	public final static void giveItem(Item item0, Item...items){
 		System.out.println("You have received: ");
 		Item.showShortItemDescription(item0);
 		bag.add(item0);
 		for(int i=0; i<items.length; i++)
 			{System.out.println("You have received: ");
-			Item.showShortItemDescription(items[0]);
+			Item.showShortItemDescription(items[i]);
 			bag.add(items[i]);
 			}
 	}
 	
-	final static void equipWeapon(){
+	final public static void equipWeapon(int wI){
 		if (bag.isEmpty())System.out.println("You don't have any items to equip! [LOOSER]");
 		else {
-			showBag();
-			System.out.print("Which iteem you would like to equip (Weapon): ");
-			Scanner scan = new Scanner(System.in);
-			int wI = -1;
-			try {wI = scan.nextInt();}
-			catch (InputMismatchException e) { System.out.println("to nie jest liczba");}
-			if (wI>bag.size() || wI <0)System.out.println("Podana liczba jest b³êdna");
-			else if (wI <= bag.size()) 
-			{
-		if ((bag.get(wI)).itemTypes==ItemType.weapon){
-		if ((bag.get(wI)).itemClaass==heroClaass) 
-			{
 			bag.add(eWeapon);
 			eWeapon = bag.get(wI);
 			heroHP = heroClaass.HP + bag.get(wI).HP +eArmor.HP;
@@ -115,30 +74,14 @@ public class Character extends main{
 			heroL = heroClaass.L + bag.get(wI).L + eArmor.L;
 			bag.remove(wI);
 			}
-		else System.out.println("Wrong class of item, you can equip this Weapon");
-	}else System.out.println("This is not Weapon!");
-		}
-			}
 		}
 	
-	final static void equipArmor(){
+	final public static void equipArmor(int wI){
 		if (bag.isEmpty())System.out.println("You don't have any items to equip! [LOOSER]");
 		else {
-			showBag();
-			System.out.print("Which iteem you would like to equip (Armor): ");
-			Scanner scan = new Scanner(System.in);
-			int wI = -1;
-			try {wI = scan.nextInt();}
-			catch (InputMismatchException e) { System.out.println("to nie jest liczba");}
-			if (wI>bag.size() || wI <0)System.out.println("Podana liczba jest b³êdna");
-			else if (wI <= bag.size()) 
-			{
-		if ((bag.get(wI)).itemTypes==ItemType.armor){
-		if ((bag.get(wI)).itemClaass==heroClaass) 
-			{
 			bag.add(eArmor);
-			eArmor = bag.get(wI);
-			heroHP = heroClaass.HP + bag.get(wI).HP + eWeapon.HP;
+			eWeapon = bag.get(wI);
+			heroHP = heroClaass.HP + bag.get(wI).HP +eWeapon.HP;
 			heroMP = heroClaass.MP + bag.get(wI).MP + eWeapon.MP;
 			heroS = heroClaass.S + bag.get(wI).S + eWeapon.S;
 			heroA = heroClaass.A + bag.get(wI).A + eWeapon.A;
@@ -146,14 +89,21 @@ public class Character extends main{
 			heroL = heroClaass.L + bag.get(wI).L + eWeapon.L;
 			bag.remove(wI);
 			}
-		else System.out.println("Wrong class of item, you can equip this armor");
-	}else System.out.println("This is not Armor!");
 		}
+	
+	public final static void firstArmorEquip() {
+		{
+			bag.add(eArmor);
+			eArmor = bag.get(3);
+			heroHP = heroClaass.HP + bag.get(3).HP + eWeapon.HP;
+			heroMP = heroClaass.MP + bag.get(3).MP + eWeapon.MP;
+			heroS = heroClaass.S + bag.get(3).S + eWeapon.S;
+			heroA = heroClaass.A + bag.get(3).A + eWeapon.A;
+			heroI = heroClaass.I + bag.get(3).I + eWeapon.I;
+			heroL = heroClaass.L + bag.get(3).L + eWeapon.L;
+			bag.remove(3);
 			}
-		}
-	
-	
-	
+	}
 	
 	final static void showBag() {
 		if (bag.isEmpty())System.out.println("You don't have any items! [LOOSER]");
@@ -167,6 +117,7 @@ public class Character extends main{
 		//mozliwosc rozwiniecia opisu konkretnego przedmiotu jako showFullItemDescription
 			
 	}
+
 	
 	final static void sellItem() {
 		
@@ -193,25 +144,25 @@ public class Character extends main{
 	System.out.println("Your actually LVL is: " + heroLVL + " and you have " + heroEXP + "/" + (int)(100*(Math.pow((1.2),heroLVL))) + " EXP.");	//mozna sparsowac na int przy wyswietlaniu
 	}
 	
-	final static void heroInfo(){
-		System.out.println(
-				 "heroName: " + Character.getHeroName() + ";"+
-				 " heroClaass : " +  Character.heroClaass+";"+
-				 " heroHP: " +  Character.heroHP+";"+
-				 " heroMP: " +  Character.heroMP+";"+
-				 " heroS: " +  Character.heroS+";"+
-				 " heroA: " +  Character.heroA+";"+
-				 " heroI: " +  Character.heroI+";"+
-				 " heroL: " +  Character.heroL+";"+
-				 " heroEXP: " +  Character.heroEXP+";"+
-				 " heroLVL: " +  Character.heroLVL+";"+
-				 " eWeapon: " +  Character.eWeapon+";"+
-				 " eArmor: " +  Character.eArmor+";"+
-				 " gold: " +  Character.gold+";"
+	final public static String heroInfo(){
+		return (
+				 "heroName: " + Character.getHeroName() + "\n"+
+				 " heroClaass : " +  Character.heroClaass+"\n"+
+				 " heroHP: " +  Character.heroHP+"\n"+
+				 " heroMP: " +  Character.heroMP+"\n"+
+				 " heroS: " +  Character.heroS+"\n"+
+				 " heroA: " +  Character.heroA+"\n"+
+				 " heroI: " +  Character.heroI+"\n"+
+				 " heroL: " +  Character.heroL+"\n"+
+				 " heroEXP: " +  Character.heroEXP+"\n"+
+				 " heroLVL: " +  Character.heroLVL+"\n"+
+				 " eWeapon: " +  Character.eWeapon+"\n"+
+				 " eArmor: " +  Character.eArmor+"\n"+
+				 " gold: " +  Character.gold+"\n"
 				  );
 	}
 	public static String getHeroName() {
-		return heroName;
+		return Character.heroName;
 	}
 	public static void setHeroName(String heroName) {
 		Character.heroName = heroName;
@@ -229,6 +180,12 @@ public class Character extends main{
 	}
 	public static void seteArmor(Item eWeapon) {
 		Character.eWeapon = eWeapon;
+	}
+	public static Item getBagWeapons(int jjj){
+		return bag.get(jjj);
+	}
+	public static void setHeroClass(Claass newHeroClaass) {
+		Character.heroClaass = newHeroClaass;
 	}
 	
 }

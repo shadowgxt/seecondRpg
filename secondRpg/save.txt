@@ -1,1 +1,1 @@
-null;mage;90;170;2;3;9;6;0.0;1.0;commonStaff;commonRobe;0;
+shadowgxt;knight;190;70;8;4;4;4;0.0;1.0;commonSwordShield;commonHeavyArmor;0;4;commonDualSword;commonTwoSword;nakedBody;fists;
