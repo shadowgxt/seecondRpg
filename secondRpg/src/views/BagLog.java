@@ -77,16 +77,16 @@ public class BagLog extends JFrame {
 		weaponName.setFont(new Font("Monotype Corsiva", Font.PLAIN, 30));
 		contentPane.add(weaponName);
 		
-		JComboBox<Item> yourItems = new JComboBox();
-		yourItems.setFont(new Font ("Tahoma", Font.BOLD, 18));
+		JComboBox<String> yourItems = new JComboBox();
+		yourItems.setFont(new Font ("Monotype Corsiva", Font.BOLD, 18));
 		yourItems.setBounds(600, 20, 450, 60);
 		contentPane.add(yourItems);
 		String myItemList = "";
 		List<Item> actuallyBagList = new ArrayList <Item>();
 		for(int iii =0;iii<Character.bag.size();iii++){
 				actuallyBagList.add(Character.bag.get(iii));
-				yourItems.addItem(Character.bag.get(iii));
-				myItemList = myItemList.concat(Character.bag.get(iii) + "\n");
+				yourItems.addItem(Character.bag.get(iii).name);
+				myItemList = myItemList.concat(Character.bag.get(iii).name + "\n");
 				}
 		
 		JTextArea yourHero = new JTextArea();
@@ -102,6 +102,7 @@ public class BagLog extends JFrame {
 		yourBagInfo.setFont(new Font("Monotype Corsiva", Font.PLAIN, 30));
 		contentPane.add(yourBagInfo);
 		
+		
 		yourItems.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				numberOfChooseItem = yourItems.getSelectedIndex();
@@ -111,14 +112,40 @@ public class BagLog extends JFrame {
 		JButton back = new JButton("BACK");
 		back.setBackground(Color.BLACK);
 		back.setForeground(Color.RED);
-		back.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		back.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.SaveLoad.save();
 				views.MainMenu.main();
 				dispose();
 			}});
-		back.setBounds(993, 588, 250, 60);
+		back.setBounds(1097, 580, 146, 60);
 		getContentPane().add(back);
+		
+		
+		JButton changeWeapon = new JButton("CHANGE WEAPON");
+		changeWeapon.setBackground(Color.BLACK);
+		changeWeapon.setForeground(Color.RED);
+		changeWeapon.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
+		changeWeapon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				views.ChangeWeapon.main();
+				dispose();
+			}});
+		changeWeapon.setBounds(800, 580, 282, 60);
+		getContentPane().add(changeWeapon);
+		
+		JButton changeArmor = new JButton("CHANGE ARMOR");
+		changeArmor.setBackground(Color.BLACK);
+		changeArmor.setForeground(Color.RED);
+		changeArmor.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
+		changeArmor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				views.ChangeArmor.main();
+				dispose();
+			}});
+		
+		changeArmor.setBounds(535, 580, 250, 60);
+		getContentPane().add(changeArmor);
 	}	
 }

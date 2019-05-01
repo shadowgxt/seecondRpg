@@ -1,1 +1,1 @@
-shadowgxt;knight;190;70;8;4;4;4;0.0;1.0;commonSwordShield;commonHeavyArmor;0;4;commonDualSword;commonTwoSword;nakedBody;fists;
+shadowgxt;knight;200;80;8;4;4;4;68.0;1.0;TwoSword;HeavyArmor;25;4;SwordShield;nakedBody;fists;DualSword;

@@ -88,7 +88,7 @@ public class HeroLog extends JFrame {
 		JButton back = new JButton("BACK");
 		back.setBackground(Color.BLACK);
 		back.setForeground(Color.RED);
-		back.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		back.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.SaveLoad.save();

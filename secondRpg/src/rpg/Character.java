@@ -35,12 +35,11 @@ public class Character extends main{
 	}
 	
 	public final static void setHeroName(){
-		views.ChangeName.main();
+		views.ChooseName.main();
 	}
 	
 	final static void getEXP (int EXP) {
 		heroEXP += EXP;
-		System.out.println("heroEXP: " + heroEXP +"     heroLVL: "+ heroLVL);
 		if (heroEXP >= (100*(Math.pow((1.2),heroLVL)))){
 			heroEXP = heroEXP - (int) (100*(Math.pow((1.2),heroLVL)));
 			heroLVL++;
@@ -52,11 +51,11 @@ public class Character extends main{
 	
 	public final static void giveItem(Item item0, Item...items){
 		System.out.println("You have received: ");
-		Item.showShortItemDescription(item0);
+		//Item.showShortItemDescription(item0);
 		bag.add(item0);
 		for(int i=0; i<items.length; i++)
 			{System.out.println("You have received: ");
-			Item.showShortItemDescription(items[i]);
+			//Item.showShortItemDescription(items[i]);
 			bag.add(items[i]);
 			}
 	}
@@ -154,7 +153,7 @@ public class Character extends main{
 				 " heroA: " +  Character.heroA+"\n"+
 				 " heroI: " +  Character.heroI+"\n"+
 				 " heroL: " +  Character.heroL+"\n"+
-				 " heroEXP: " +  Character.heroEXP+"\n"+
+				 " heroEXP: " +  Character.heroEXP+"/"+(int)(100*(Math.pow((1.2),heroLVL)))+"\n"+
 				 " heroLVL: " +  Character.heroLVL+"\n"+
 				 " eWeapon: " +  Character.eWeapon+"\n"+
 				 " eArmor: " +  Character.eArmor+"\n"+
@@ -178,8 +177,8 @@ public class Character extends main{
 	public static Item geteArmor() {
 		return eWeapon;
 	}
-	public static void seteArmor(Item eWeapon) {
-		Character.eWeapon = eWeapon;
+	public static void seteArmor(Item eArmor) {
+		Character.eArmor = eArmor;
 	}
 	public static Item getBagWeapons(int jjj){
 		return bag.get(jjj);

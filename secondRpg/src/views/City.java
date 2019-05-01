@@ -48,7 +48,7 @@ public class City extends JFrame{
 		
 		txtChooseOption = new JTextField();
 		txtChooseOption.setBackground(Color.GRAY);
-		txtChooseOption.setFont(new Font("Times New Roman", Font.BOLD, 85));
+		txtChooseOption.setFont(new Font("Monotype Corsiva", Font.BOLD, 85));
 		txtChooseOption.setForeground(Color.BLUE);
 		txtChooseOption.setHorizontalAlignment(SwingConstants.CENTER);
 		txtChooseOption.setText("CITY");
@@ -59,7 +59,7 @@ public class City extends JFrame{
 		JButton forge = new JButton("FORGE");
 		forge.setBackground(Color.BLACK);
 		forge.setForeground(Color.RED);
-		forge.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		forge.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		forge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.SaveLoad.save();
@@ -72,7 +72,7 @@ public class City extends JFrame{
 		JButton tavern = new JButton("TAVERN");
 		tavern.setBackground(Color.BLACK);
 		tavern.setForeground(Color.RED);
-		tavern.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		tavern.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		tavern.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.SaveLoad.save();
@@ -85,7 +85,7 @@ public class City extends JFrame{
 		JButton sell = new JButton("SELL");
 		sell.setBackground(Color.BLACK);
 		sell.setForeground(Color.RED);
-		sell.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		sell.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		sell.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.SaveLoad.save();
@@ -98,7 +98,7 @@ public class City extends JFrame{
 		JButton buy = new JButton("BUY");
 		buy.setBackground(Color.BLACK);
 		buy.setForeground(Color.RED);
-		buy.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		buy.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		buy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.SaveLoad.load();
@@ -111,7 +111,7 @@ public class City extends JFrame{
 		JButton back = new JButton("BACK");
 		back.setBackground(Color.BLACK);
 		back.setForeground(Color.RED);
-		back.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		back.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		back.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.SaveLoad.save();

@@ -2,121 +2,44 @@ package rpg;
 
 public enum Item {
 	//knight weapon
-commonSwordShield(1, 10, 10,0,0,0,0,6,Claass.knight,Rarity.common, ItemType.weapon),
-uncommonSwordShield(5, 10, 10,0,0,0,0,5,Claass.knight,Rarity.uncommon, ItemType.weapon),
-rareSwordShield(10, 10, 10,0,0,0,0,5,Claass.knight,Rarity.rare, ItemType.weapon),
-specialSwordShield(15, 10, 10,0,0,0,0,5,Claass.knight,Rarity.special, ItemType.weapon),
-legendarySwordShield(20, 10, 10,0,0,0,0,5,Claass.knight,Rarity.legendary, ItemType.weapon),
-mythicalSwordShield(25, 10, 10,0,0,0,0,5,Claass.knight,Rarity.mythical, ItemType.weapon),
-commonDualSword(1, 15, 15,0,0,0,0,7,Claass.knight,Rarity.common, ItemType.weapon),
-uncommonDualSword(5, 10, 10,0,0,0,0,5,Claass.knight,Rarity.uncommon, ItemType.weapon),
-rareDualSword(10, 10, 10,0,0,0,0,5,Claass.knight,Rarity.rare, ItemType.weapon),
-specialDualSword(15, 10, 10,0,0,0,0,5,Claass.knight,Rarity.special, ItemType.weapon),
-legendaryDualSword(20, 10, 10,0,0,0,0,5,Claass.knight,Rarity.legendary, ItemType.weapon),
-mythicalDualSword(25, 10, 10,0,0,0,0,5,Claass.knight,Rarity.mythical, ItemType.weapon),
-commonTwoSword(1, 20, 20,0,0,0,0,8,Claass.knight,Rarity.common, ItemType.weapon),
-uncommonTwoSword(5, 10, 10,0,0,0,0,5,Claass.knight,Rarity.uncommon, ItemType.weapon),
-rareTwoSword(10, 10, 10,0,0,0,0,5,Claass.knight,Rarity.rare, ItemType.weapon),
-specialTwoSword(15, 10, 10,0,0,0,0,5,Claass.knight,Rarity.special, ItemType.weapon),
-legendaryTwoSword(20, 10, 10,0,0,0,0,5,Claass.knight,Rarity.legendary, ItemType.weapon),
-mythicalTwoSword(25, 10, 10,0,0,0,0,5,Claass.knight,Rarity.mythical, ItemType.weapon),
+	//     		LVL, 	HP, 	MP, S, 	A, 	I, 	L, 	gold
+SwordShield		(1, 	60, 	0,	5,	0,	0,	2,	5,	Claass.knight,Rarity.common, ItemType.weapon, "Sword with shield"),
+DualSword		(1, 	30, 	0,	10,	0,	0,	1,	5,	Claass.knight,Rarity.common, ItemType.weapon, "Two-handed Sword"),
+TwoSword		(1, 	45, 	0,	7,	0,	0,	3,	5,	Claass.knight,Rarity.common, ItemType.weapon, "Two Swords"),
 	//ranger weapon
-commonBow(1, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.common, ItemType.weapon),
-uncommonBow(5, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.uncommon, ItemType.weapon),
-rareBow(10, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.rare, ItemType.weapon),
-specialBow(15, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.special, ItemType.weapon),
-legendaryBow(20, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.legendary, ItemType.weapon),
-mythicalBow(25, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.mythical, ItemType.weapon),
-commonDagger(1, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.common, ItemType.weapon),
-uncommonDagger(5, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.uncommon, ItemType.weapon),
-rareDagger(10, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.rare, ItemType.weapon),
-specialDagger(15, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.special, ItemType.weapon),
-legendaryDagger(20, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.legendary, ItemType.weapon),
-mythicalDagger(25, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.mythical, ItemType.weapon),
-commonCrossBow(1, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.common, ItemType.weapon),
-uncommonCrossBow(5, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.uncommon, ItemType.weapon),
-rareCrossBow(10, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.rare, ItemType.weapon),
-specialCrossBow(15, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.special, ItemType.weapon),
-legendaryCrossBow(20, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.legendary, ItemType.weapon),
-mythicalCrossBow(25, 10, 10,0,0,0,0,5,Claass.ranger,Rarity.mythical, ItemType.weapon),
+Bow				(1, 	20, 	0,	2,	6,	0,	5,	5,	Claass.ranger,Rarity.common, ItemType.weapon, "Bow"),
+Dagger			(1, 	30, 	0,	1,	8,	0,	2,	5,	Claass.ranger,Rarity.common, ItemType.weapon, "Dagger"),
+Crossbow		(1, 	10, 	0,	3,	10,	0,	1,	5,	Claass.ranger,Rarity.common, ItemType.weapon, "Crossbow"),
 	//mage weapon
-commonWand(1, 10, 10,0,0,0,0,5,Claass.mage,Rarity.common, ItemType.weapon),
-uncommonWand(5, 10, 10,0,0,0,0,5,Claass.mage,Rarity.uncommon, ItemType.weapon),
-rareWand(10, 10, 10,0,0,0,0,5,Claass.mage,Rarity.rare, ItemType.weapon),
-specialWand(15, 10, 10,0,0,0,0,5,Claass.mage,Rarity.special, ItemType.weapon),
-legendaryWand(20, 10, 10,0,0,0,0,5,Claass.mage,Rarity.legendary, ItemType.weapon),
-mythicalWand(25, 10, 10,0,0,0,0,5,Claass.mage,Rarity.mythical, ItemType.weapon),
-commonScepter(1, 10, 10,0,0,0,0,5,Claass.mage,Rarity.common, ItemType.weapon),
-uncommonScepter(5, 10, 10,0,0,0,0,5,Claass.mage,Rarity.uncommon, ItemType.weapon),
-rareScepter(10, 10, 10,0,0,0,0,5,Claass.mage,Rarity.rare, ItemType.weapon),
-specialScepter(15, 10, 10,0,0,0,0,5,Claass.mage,Rarity.special, ItemType.weapon),
-legendaryScepter(20, 10, 10,0,0,0,0,5,Claass.mage,Rarity.legendary, ItemType.weapon),
-mythicalScepter(25, 10, 10,0,0,0,0,5,Claass.mage,Rarity.mythical, ItemType.weapon),
-commonStaff(1, 10, 10,0,0,0,0,5,Claass.mage,Rarity.common, ItemType.weapon),
-uncommonStaff(5, 10, 10,0,0,0,0,5,Claass.mage,Rarity.uncommon, ItemType.weapon),
-rareStaff(10, 10, 10,0,0,0,0,5,Claass.mage,Rarity.rare, ItemType.weapon),
-specialStaff(15, 10, 10,0,0,0,0,5,Claass.mage,Rarity.special, ItemType.weapon),
-legendaryStaff(20, 10, 10,0,0,0,0,5,Claass.mage,Rarity.legendary, ItemType.weapon),
-mythicalStaff(25, 10, 10,0,0,0,0,5,Claass.mage,Rarity.mythical, ItemType.weapon),
+Wand			(1, 	20, 	20,	0,	0,	6,	2,	5,	Claass.mage,Rarity.common, ItemType.weapon, "Wand"),
+Scepter			(1, 	10, 	30,	0,	0,	8,	2,	5,	Claass.mage,Rarity.common, ItemType.weapon, "Scepter"),
+Staff			(1, 	15, 	25,	2,	0,	7,	2,	5,	Claass.mage,Rarity.common, ItemType.weapon, "Staff"),
 	//viking weapon
-commonTwoAxe(1, 10, 10,0,0,0,0,5,Claass.viking,Rarity.common, ItemType.weapon),
-uncommonTwoAxe(5, 10, 10,0,0,0,0,5,Claass.viking,Rarity.uncommon, ItemType.weapon),
-rareTwoAxe(10, 10, 10,0,0,0,0,5,Claass.viking,Rarity.rare, ItemType.weapon),
-specialTwoAxe(15, 10, 10,0,0,0,0,5,Claass.viking,Rarity.special, ItemType.weapon),
-legendaryTwoAxe(20, 10, 10,0,0,0,0,5,Claass.viking,Rarity.legendary, ItemType.weapon),
-mythicalTwoAxe(25, 10, 10,0,0,0,0,5,Claass.viking,Rarity.mythical, ItemType.weapon),
-commonDualAxe(1, 10, 10,0,0,0,0,5,Claass.viking,Rarity.common, ItemType.weapon),
-uncommonDualAxe(5, 10, 10,0,0,0,0,5,Claass.viking,Rarity.uncommon, ItemType.weapon),
-rareDualAxe(10, 10, 10,0,0,0,0,5,Claass.viking,Rarity.rare, ItemType.weapon),
-specialDualAxe(15, 10, 10,0,0,0,0,5,Claass.viking,Rarity.special, ItemType.weapon),
-legendaryDualAxe(20, 10, 10,0,0,0,0,5,Claass.viking,Rarity.legendary, ItemType.weapon),
-mythicalDualAxe(25, 10, 10,0,0,0,0,5,Claass.viking,Rarity.mythical, ItemType.weapon),
-commonAxeShield(1, 10, 10,0,0,0,0,5,Claass.viking,Rarity.common, ItemType.weapon),
-uncommonAxeShield(5, 10, 10,0,0,0,0,5,Claass.viking,Rarity.uncommon, ItemType.weapon),
-rareAxeShield(10, 10, 10,0,0,0,0,5,Claass.viking,Rarity.rare, ItemType.weapon),
-specialAxeShield(15, 10, 10,0,0,0,0,5,Claass.viking,Rarity.special, ItemType.weapon),
-legendaryAxeShield(20, 10, 10,0,0,0,0,5,Claass.viking,Rarity.legendary, ItemType.weapon),
-mythicalAxeShield(25, 10, 10,0,0,0,0,5,Claass.viking,Rarity.mythical, ItemType.weapon),
+TwoAxe			(1, 	40, 	10,	0,	0,	0,	4,	5,	Claass.viking,Rarity.common, ItemType.weapon, "Two Axes"),
+DualAxe			(1, 	40, 	10,	0,	0,	0,	4,	5,	Claass.viking,Rarity.common, ItemType.weapon, "Two-handed Axe"),
+AxeShield		(1, 	40, 	10,	0,	0,	0,	4,	5,	Claass.viking,Rarity.common, ItemType.weapon, "Axe with Shield"),
 	//knight armor
-commonHeavyArmor(1, 10, 10,0,0,0,0,10,Claass.knight,Rarity.common, ItemType.armor),
-uncommonHeavyArmor(5, 10, 10,0,0,0,0,10,Claass.knight,Rarity.uncommon, ItemType.armor),
-rareHeavyArmor(10, 10, 10,0,0,0,0,10,Claass.knight,Rarity.rare, ItemType.armor),
-specialHeavyArmor(15, 10, 10,0,0,0,0,10,Claass.knight,Rarity.special, ItemType.armor),
-legendaryHeavyArmor(20, 10, 10,0,0,0,0,10,Claass.knight,Rarity.legendary, ItemType.armor),
-mythicalHeavyArmor(25, 10, 10,0,0,0,0,10,Claass.knight,Rarity.mythical, ItemType.armor),
+HeavyArmor		(1, 	100, 	0,	10,	2,	0,	3,	10,	Claass.knight,Rarity.common, ItemType.armor, "Heavy Armor"),
 	//ranger armor
-commonLightArmor(1, 10, 10,0,0,0,0,10,Claass.ranger,Rarity.common, ItemType.armor),
-uncommonLightArmor(5, 10, 10,0,0,0,0,10,Claass.ranger,Rarity.uncommon, ItemType.armor),
-rareLightArmor(10, 10, 10,0,0,0,0,10,Claass.ranger,Rarity.rare, ItemType.armor),
-specialLightArmor(15, 10, 10,0,0,0,0,10,Claass.ranger,Rarity.special, ItemType.armor),
-legendaryLightArmor(20, 10, 10,0,0,0,0,10,Claass.ranger,Rarity.legendary, ItemType.armor),
-mythicalLightArmor(25, 10, 10,0,0,0,0,10,Claass.ranger,Rarity.mythical, ItemType.armor),
+LightArmor		(1, 	50, 	20,	2,	10,	4,	7,	10,	Claass.ranger,Rarity.common, ItemType.armor, "Light Armor"),
 	//mage armor
-commonRobe(1, 10, 10,0,0,0,0,10,Claass.mage,Rarity.common, ItemType.armor),
-uncommonRobe(5, 10, 10,0,0,0,0,10,Claass.mage,Rarity.uncommon, ItemType.armor),
-rareRobe(10, 10, 10,0,0,0,0,10,Claass.mage,Rarity.rare, ItemType.armor),
-specialRobe(15, 10, 10,0,0,0,0,10,Claass.mage,Rarity.special, ItemType.armor),
-legendaryRobe(20, 10, 10,0,0,0,0,10,Claass.mage,Rarity.legendary, ItemType.armor),
-mythicalRobe(25, 10, 10,0,0,0,0,10,Claass.mage,Rarity.mythical, ItemType.armor),
+Robe			(1, 	20, 	80,	0,	2,	10,	5,	10,	Claass.mage,Rarity.common, ItemType.armor, "Robe"),
 	//viking armor
-commonMidArmor(1, 10, 10,0,0,0,0,10,Claass.viking,Rarity.common, ItemType.armor),
-uncommonMidArmor(5, 10, 10,0,0,0,0,10,Claass.viking,Rarity.uncommon, ItemType.armor),
-rareMidArmor(10, 10, 10,0,0,0,0,10,Claass.viking,Rarity.rare, ItemType.armor),
-specialkMidArmor(15, 10, 10,0,0,0,0,10,Claass.viking,Rarity.special, ItemType.armor),
-legendaryMidArmor(20, 10, 10,0,0,0,0,10,Claass.viking,Rarity.legendary, ItemType.armor),
-mythicalMidArmor(25, 10, 10,0,0,0,0,10,Claass.viking,Rarity.mythical, ItemType.armor), 
-fists(1,0,0,0,0,0,0,0,Claass.all,Rarity.common, ItemType.weapon),
-nakedBody(1,0,0,0,0,0,0,0,Claass.all,Rarity.common, ItemType.armor);
+MidArmor		(1, 	60, 	0,	7,	3,	3,	5,	10,	Claass.viking,Rarity.common, ItemType.armor, "Medium Armor"),
+	//first Items
+fists			(1,1,1,1,1,1,1,0,Claass.all,Rarity.common, ItemType.weapon, "fists"),
+nakedBody		(1,1,1,1,1,1,1,0,Claass.all,Rarity.common, ItemType.armor, "naked body");
 
 
 	public ItemType itemTypes;
 	public Claass itemClaass;
-	public int LVL,HP,MP,S,A,I,L,gold;
+	public int itemLVL,HP,MP,S,A,I,L,gold;
 	public Rarity raritys;
+	public String name;
 	
-	private Item (int LVL,int HP,int MP,int S,int A,int I,int L,int gold,Claass itemClaass, Rarity raritys, ItemType itemTypes) {
+	private Item (int itemLVL,int HP,int MP,int S,int A,int I,int L,int gold,Claass itemClaass, Rarity raritys, ItemType itemTypes, String name) {
 		this.itemClaass=itemClaass;
-		this.LVL=LVL;
+		this.itemLVL=itemLVL;
 		this.HP=HP;
 		this.MP=MP;
 		this.S=S;
@@ -126,12 +49,13 @@ nakedBody(1,0,0,0,0,0,0,0,Claass.all,Rarity.common, ItemType.armor);
 		this.gold=gold;
 		this.itemTypes=itemTypes;
 		this.raritys=raritys;
+		this.name=name;
 		
 	}
 	
 	public static String showFullItemDescription(Item itemName){
-		return(itemName + " \nposiada nastêpuj¹ce statystyki: \n" +
-		"LVL: " + itemName.LVL + "\n" +
+		return(itemName.raritys + itemName.name + " \nposiada nastêpuj¹ce statystyki: \n" +
+		"LVL: " + itemName.itemLVL + "\n" +
 		" HP: " + itemName.HP + "\n" +
 		" MP: " + itemName.MP + "\n" +
 		" S: " + itemName.S + " " +
@@ -145,8 +69,8 @@ nakedBody(1,0,0,0,0,0,0,0,Claass.all,Rarity.common, ItemType.armor);
 	}
 	
 	public static String showShortItemDescription(Item itemName){
-		return (itemName + " w skrocie: \n" + 
-		"LVL: " + itemName.LVL +
+		return (itemName.raritys + itemName.name + " w skrocie: \n" + 
+		"LVL: " + itemName.itemLVL +
 		"\n Sell price: " + itemName.gold + " gold coins" +
 		"\n Rarity: " + itemName.raritys +
 		"\n Typ: " + itemName.itemTypes +

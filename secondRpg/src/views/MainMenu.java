@@ -48,7 +48,7 @@ public class MainMenu extends JFrame{
 		JButton city = new JButton("CITY");
 		city.setBackground(Color.BLACK);
 		city.setForeground(Color.RED);
-		city.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		city.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		city.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				views.City.main();
@@ -60,10 +60,10 @@ public class MainMenu extends JFrame{
 		JButton dungeon = new JButton("DUNGEON");
 		dungeon.setBackground(Color.BLACK);
 		dungeon.setForeground(Color.RED);
-		dungeon.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		dungeon.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		dungeon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//open dungeon view
+				views.DungeonLevelChoosing.main();
 				frmMenusTart.dispose();
 			}});
 		dungeon.setBounds(61, 174, 250, 60);
@@ -72,10 +72,10 @@ public class MainMenu extends JFrame{
 		JButton fight = new JButton("FIGHT");
 		fight.setBackground(Color.BLACK);
 		fight.setForeground(Color.RED);
-		fight.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		fight.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		fight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//open fight view
+				views.Fight.main();
 				frmMenusTart.dispose();
 			}});
 		fight.setBounds(61, 98, 250, 60);
@@ -84,7 +84,7 @@ public class MainMenu extends JFrame{
 		JButton items = new JButton("YOUR ITEMS");
 		items.setBackground(Color.BLACK);
 		items.setForeground(Color.RED);
-		items.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		items.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		items.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				views.BagLog.main();
@@ -96,7 +96,7 @@ public class MainMenu extends JFrame{
 		JButton hero = new JButton("HERO");
 		hero.setBackground(Color.BLACK);
 		hero.setForeground(Color.RED);
-		hero.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		hero.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		hero.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				views.HeroLog.main();
@@ -108,7 +108,7 @@ public class MainMenu extends JFrame{
 		JButton save = new JButton("SAVE");
 		save.setBackground(Color.BLACK);
 		save.setForeground(Color.RED);
-		save.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		save.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SaveLoad.save();
@@ -119,7 +119,7 @@ public class MainMenu extends JFrame{
 		JButton exit = new JButton("EXIT");
 		exit.setBackground(Color.BLACK);
 		exit.setForeground(Color.RED);
-		exit.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		exit.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		exit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//close

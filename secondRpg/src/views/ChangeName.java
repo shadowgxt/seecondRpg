@@ -1,7 +1,9 @@
 package views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -43,20 +45,24 @@ public class ChangeName extends JFrame {
 		
 		
 		JButton btnChangeName = new JButton("CHANGE NAME");
+		btnChangeName.setFont(new Font("Monotype Corsiva", Font.PLAIN, 30));
+		btnChangeName.setBackground(Color.BLACK);
+		btnChangeName.setForeground(Color.RED);
 		btnChangeName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.Character.setHeroName(textField.getText());
-				WhichHeroClaass.main();
+				views.MainMenu.main();
 				dispose();
 				
 			}
 		});
 		contentPane.setLayout(null);
-		btnChangeName.setBounds(565, 335, 150, 50);
+		btnChangeName.setBounds(508, 335, 274, 50);
 		contentPane.add(btnChangeName);
 		
 		textField = new JTextField();
-		textField.setBounds(569, 272, 146, 26);
+		textField.setFont(new Font("Times New Roman", Font.PLAIN, 28));
+		textField.setBounds(508, 211, 274, 87);
 		contentPane.add(textField);
 		textField.setColumns(10);
 	}

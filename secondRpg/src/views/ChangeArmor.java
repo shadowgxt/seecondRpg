@@ -1,6 +1,7 @@
 package views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.PopupMenu;
@@ -67,12 +68,12 @@ public class ChangeArmor extends JFrame {
 		
 		armorName.setEditable(false);
 		armorName.setBounds(70, 20, 450, 60);
-		armorName.setText("Equiped armor: " + rpg.Character.geteArmor());
+		armorName.setText("Equiped armor:" + rpg.Character.geteArmor().name());
 		armorName.setFont(new Font("Monotype Corsiva", Font.PLAIN, 30));
 		contentPane.add(armorName);
 		
 		JComboBox<Item> chooseArmor = new JComboBox();
-		chooseArmor.setFont(new Font ("Tahoma", Font.BOLD, 18));
+		chooseArmor.setFont(new Font ("Monotype Corsiva", Font.BOLD, 18));
 		chooseArmor.setBounds(600, 20, 450, 60);
 		contentPane.add(chooseArmor);
 		List<Item> actuallyArmorList = new ArrayList <Item>();
@@ -91,8 +92,8 @@ public class ChangeArmor extends JFrame {
 		JTextArea eArmorInfo = new JTextArea();
 		eArmorInfo.setEditable(false);
 		eArmorInfo.setBounds(70, 90, 450, 450);
-		eArmorInfo.setText(equipedArmor + " stats: \n" +
-		"LVL: " + equipedArmor.LVL + "\n" +
+		eArmorInfo.setText(equipedArmor.name + " stats: \n" +
+		"LVL: " + equipedArmor.itemLVL + "\n" +
 		" HP: " + equipedArmor.HP + "\n" +
 		" MP: " + equipedArmor.MP + "\n" +
 		" S: " + equipedArmor.S + "\n" +
@@ -115,8 +116,8 @@ public class ChangeArmor extends JFrame {
 		chooseArmor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				numberOfChooseItem = chooseArmor.getSelectedIndex();
-				newArmorInfo.setText(actuallyArmorList.get(numberOfChooseItem) + " stats: \n" +
-						"LVL: " + actuallyArmorList.get(numberOfChooseItem).LVL + "\n" +
+				newArmorInfo.setText(actuallyArmorList.get(numberOfChooseItem).name + " stats: \n" +
+						"LVL: " + actuallyArmorList.get(numberOfChooseItem).itemLVL + "\n" +
 						" HP: " + actuallyArmorList.get(numberOfChooseItem).HP + "\n" +
 						" MP: " + actuallyArmorList.get(numberOfChooseItem).MP + "\n" +
 						" S: " + actuallyArmorList.get(numberOfChooseItem).S + "\n" +
@@ -131,6 +132,9 @@ public class ChangeArmor extends JFrame {
 		});
 		
 		JButton changeArmor = new JButton("CHANGE ARMOR");
+		changeArmor.setBackground(Color.BLACK);
+		changeArmor.setForeground(Color.RED);
+		changeArmor.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		changeArmor.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				Character.equipArmor(bagNumber.get(numberOfChooseItem));
@@ -139,9 +143,21 @@ public class ChangeArmor extends JFrame {
 				dispose();
 			}
 		});
-		changeArmor.setBounds(1043, 618, 200, 30);
+		changeArmor.setBounds(968, 588, 275, 60);
 		contentPane.add(changeArmor);
 		
+		JButton mainMenu = new JButton("MAIN MENU");
+		mainMenu.setBackground(Color.BLACK);
+		mainMenu.setForeground(Color.RED);
+		mainMenu.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		mainMenu.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				rpg.SaveLoad.save();
+				views.MainMenu.main();
+				dispose();
+			}});
+		mainMenu.setBounds(706, 588, 247, 60);
+		getContentPane().add(mainMenu);
 		
 	}
 	

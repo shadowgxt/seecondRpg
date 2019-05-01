@@ -8,49 +8,62 @@ public class Fight extends Character {
 	}
 
 	static double monsterLVL = 0;
-	static int thisHeroHP = Character.heroHP;
+	public static String myFightLog = "";
 	static int allGold = 0;
 	
-	static Random rand = new Random();	
+	static Random rand = new Random();
+
 	public static void main(int manyBattles) throws InterruptedException {
+		int thisHeroHP = Character.heroHP;
 		if (manyBattles == 1){
-			battle();
+			thisHeroHP = battle(thisHeroHP);
 			if (thisHeroHP>0) getGold(allGold);
 		}
 		else if (manyBattles>1){
 			int ll = 0;
 			do {
-				battle();
-			}while ((ll<manyBattles) && (thisHeroHP>0));
+				thisHeroHP = battle(thisHeroHP);
+				ll= ll+1;
+			}while ((ll<manyBattles));
 		if (thisHeroHP>0) getGold(allGold);
+		myFightLog = myFightLog.concat("You havee earn: " +allGold+ "\n");
+		
 		//dodanie przydzielanie przeedmiotów
-		}}
+		}
+		rpg.SaveLoad.save();
+		}
 	
+	//public static Monster monsterek;
 
-
-	static void battle () throws InterruptedException{
+	static int battle (int thiseheroHP) throws InterruptedException{
 		Monster oponent = createMonster();
+		int thisHeroHP = thiseheroHP;
+		if (thisHeroHP > 0){
 		do {int thisAttack = Fight.attack();
-		
-		
+			myFightLog = myFightLog.concat("Hero attack in this turn: " + thisAttack + "\n");
 			if (thisAttack>oponent.monsterDEF)
 			oponent.monsterHP= (oponent.monsterHP) + (oponent.monsterDEF - thisAttack);
 			thisHeroHP = thisHeroHP - oponent.monsterATT ;
-			System.out.println("thisHeroHP: "+thisHeroHP +" thisHeroHP: "+ thisHeroHP +" oponent.monsterATT: "+ oponent.monsterATT);
-			System.out.println(thisAttack);
-			System.out.println(thisHeroHP);
-			System.out.println(oponent.monsterHP);
+			myFightLog = myFightLog.concat("Hero attack: " + (thisAttack - oponent.monsterDEF) +" damage.\t");
+			if ((oponent.monsterATT- (Character.heroS*5))>0)
+				myFightLog = myFightLog.concat("Monster attack: " + (oponent.monsterATT- (Character.heroS*5)) + " damage.\n");
+			else myFightLog = myFightLog.concat("\n");
+			myFightLog = myFightLog.concat(Character.getHeroName() + " HP: " + thisHeroHP + "/" + Character.heroHP + "\t");
+			myFightLog = myFightLog.concat(oponent.monsterName + " HP: " + oponent.monsterHP + "\n");
+			
 		}while(oponent.monsterHP>=0 && thisHeroHP>=0);
 		if (thisHeroHP<=0) {
-			System.out.println("I think you died, maybe not all, but now yes, you are dead");
+			myFightLog = myFightLog.concat("YOU DIED, LOOOSER :)\n");
 		}
 		else if (oponent.monsterHP<=0) {
 			getEXP ((int) oponent.monsterEXP); 
-			System.out.println("You have won and get " + oponent.monsterEXP + " EXP from monster.");
+			myFightLog = myFightLog.concat("You have won and get " + oponent.monsterEXP + " EXP from monster." + "\n");
 			allGold= allGold + randGold();
 		}
 		else System.out.println("Co sie do cholery jasnej niby stalo?");
-		
+		return (thisHeroHP);
+		}myFightLog = myFightLog.concat("Dead people can't fight");
+		return (thisHeroHP);
 	}
 	
 	final static int randGold () {
@@ -58,14 +71,27 @@ public class Fight extends Character {
 		int m = rand.nextInt(9);
 		return (int) ((m+1) * (Character.heroLVL*(Math.pow(1.3, heroLVL))));
 	}
+	
 	public static Monster createMonster(){
+		Monster monstrum = Monster.monstrum;
+		Monster.monstrum.monsterATT = 0;
+		Monster.monstrum.monsterDEF = 0;
+		Monster.monstrum.monsterEXP = 0;
+		Monster.monstrum.monsterHP = 0;
+		Monster.monstrum.monsterName = "monstrum";
 		Monster monsterek = Monster.getRandomMonster();
-		System.out.println("You meet " + monsterek);
-		monsterek.monsterATT = (int) ((int) monsterek.monsterATT * Math.pow(1.3,monsterLVL));
-		monsterek.monsterDEF= (int) ((int) monsterek.monsterDEF * Math.pow(1.3,monsterLVL));
-		monsterek.monsterEXP= (int) ((int) monsterek.monsterEXP * Math.pow(1.3,monsterLVL));
-		monsterek.monsterHP= (int) ((int) monsterek.monsterHP * Math.pow(1.3,monsterLVL));
-		return(monsterek);
+		Monster.monstrum.monsterATT = monsterek.monsterATT;
+		Monster.monstrum.monsterDEF= monsterek.monsterDEF;
+		Monster.monstrum.monsterEXP= monsterek.monsterEXP;
+		Monster.monstrum.monsterHP= monsterek.monsterHP;
+		Monster.monstrum.monsterName= monsterek.monsterName;
+		myFightLog = myFightLog.concat("You meet " + monstrum.monsterName + ": ");
+		monstrum.monsterATT = (int) ((int) monstrum.monsterATT * Math.pow(1.3,monsterLVL));
+		monstrum.monsterDEF= (int) ((int) monstrum.monsterDEF * Math.pow(1.3,monsterLVL));
+		monstrum.monsterEXP= (int) ((int) monstrum.monsterEXP * Math.pow(1.3,monsterLVL));
+		monstrum.monsterHP= (int) ((int) monstrum.monsterHP * Math.pow(1.3,monsterLVL));
+		myFightLog = myFightLog.concat("HP: " +monstrum.monsterHP+ " DEF: " +monstrum.monsterDEF+ " ATT: " + monstrum.monsterATT + "\n");
+		return(monstrum);
 	}
 	
 	/*public void monster (double monsterHP, double monsterAttack, double monsterDef, int difficulty){
@@ -95,4 +121,10 @@ public class Fight extends Character {
 		return attack;
 	}
 	
+	public static String getFightLog(){
+		return (myFightLog);
+	}
+	public static void setFightLogZero(){
+		myFightLog = "";
+	}
 }

@@ -1,7 +1,9 @@
 package views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class ChooseName extends JFrame {
 	private JPanel contentPane;
@@ -43,20 +46,24 @@ public class ChooseName extends JFrame {
 		
 		
 		JButton btnChangeName = new JButton("CHANGE NAME");
+		btnChangeName.setFont(new Font("Monotype Corsiva", Font.PLAIN, 30));
+		btnChangeName.setBackground(Color.BLACK);
+		btnChangeName.setForeground(Color.RED);
 		btnChangeName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.Character.setHeroName(textField.getText());
-				views.MainMenu.main();
+				views.WhichHeroClaass.main();
 				dispose();
 				
 			}
 		});
 		contentPane.setLayout(null);
-		btnChangeName.setBounds(565, 335, 150, 50);
+		btnChangeName.setBounds(495, 369, 268, 50);
 		contentPane.add(btnChangeName);
 		
 		textField = new JTextField();
-		textField.setBounds(569, 272, 146, 26);
+		textField.setFont(new Font("Times New Roman", Font.PLAIN, 28));
+		textField.setBounds(495, 233, 268, 106);
 		contentPane.add(textField);
 		textField.setColumns(10);
 	}

@@ -15,4 +15,6 @@ mythical('m',5);
 		this.letterSign=letterSign;
 		this.numberSign=numberSign;
 	}
+	
+	set
 }

@@ -54,7 +54,7 @@ public class WhichHeroClaass extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				rpg.Character.setHeroClass(Claass.knight);
 				rpg.Character.setFirstStat();
-				rpg.Character.giveItem(Item.commonSwordShield, Item.commonDualSword, Item.commonTwoSword, Item.commonHeavyArmor);
+				rpg.Character.giveItem(Item.SwordShield, Item.DualSword, Item.TwoSword, Item.HeavyArmor);
 				rpg.Character.firstArmorEquip();
 				SaveLoad.save();
 				views.ChangeWeapon.main();
@@ -62,7 +62,7 @@ public class WhichHeroClaass extends JFrame {
 			}
 		});
 		contentPane.setLayout(null);
-		btnNewButton_0.setBounds(400, 200, 300, 100);
+		btnNewButton_0.setBounds(179, 150, 300, 100);
 		contentPane.add(btnNewButton_0);
 		
 		
@@ -74,14 +74,14 @@ public class WhichHeroClaass extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				rpg.Character.setHeroClass(Claass.ranger);
 				rpg.Character.setFirstStat();
-				rpg.Character.giveItem(Item.commonSwordShield, Item.commonDualSword, Item.commonTwoSword, Item.commonHeavyArmor);
+				rpg.Character.giveItem(Item.Bow, Item.Dagger, Item.Crossbow, Item.LightArmor);
 				rpg.Character.firstArmorEquip();
 				SaveLoad.save();
 				views.ChangeWeapon.main();
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(400, 450, 300, 100);
+		btnNewButton_1.setBounds(179, 393, 300, 100);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("MAGE");
@@ -92,14 +92,14 @@ public class WhichHeroClaass extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				rpg.Character.setHeroClass(Claass.mage);
 				rpg.Character.setFirstStat();
-				rpg.Character.giveItem(Item.commonSwordShield, Item.commonDualSword, Item.commonTwoSword, Item.commonHeavyArmor);
+				rpg.Character.giveItem(Item.Wand, Item.Scepter, Item.Staff, Item.Robe);
 				rpg.Character.firstArmorEquip();
 				SaveLoad.save();
 				views.ChangeWeapon.main();
 				dispose();
 			}
 		});
-		btnNewButton_2.setBounds(880, 200, 300, 100);
+		btnNewButton_2.setBounds(723, 150, 300, 100);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("VIKING");
@@ -110,14 +110,14 @@ public class WhichHeroClaass extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				rpg.Character.setHeroClass(Claass.viking);
 				rpg.Character.setFirstStat();
-				rpg.Character.giveItem(Item.commonSwordShield, Item.commonDualSword, Item.commonTwoSword, Item.commonHeavyArmor);
+				rpg.Character.giveItem(Item.TwoAxe, Item.DualAxe, Item.AxeShield, Item.MidArmor);
 				rpg.Character.firstArmorEquip();
 				SaveLoad.save();
 				views.ChangeWeapon.main();
 				dispose();
 			}
 		});
-		btnNewButton_3.setBounds(880, 450, 300, 100);
+		btnNewButton_3.setBounds(723, 393, 300, 100);
 		contentPane.add(btnNewButton_3);
 	}
 }

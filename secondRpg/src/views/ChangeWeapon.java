@@ -1,6 +1,7 @@
 package views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.PopupMenu;
@@ -71,8 +72,8 @@ public class ChangeWeapon extends JFrame {
 		weaponName.setFont(new Font("Monotype Corsiva", Font.PLAIN, 30));
 		contentPane.add(weaponName);
 		
-		JComboBox<Item> chooseWeapon = new JComboBox();
-		chooseWeapon.setFont(new Font ("Tahoma", Font.BOLD, 18));
+		JComboBox<String> chooseWeapon = new JComboBox();
+		chooseWeapon.setFont(new Font ("Monotype Corsiva", Font.BOLD, 18));
 		chooseWeapon.setBounds(600, 20, 450, 60);
 		contentPane.add(chooseWeapon);
 		List<Item> actuallyWeaponList = new ArrayList <Item>();
@@ -82,7 +83,7 @@ public class ChangeWeapon extends JFrame {
 			if (Character.bag.get(iii).itemTypes == ItemType.weapon){
 				actuallyWeaponList.add(Character.bag.get(iii));
 				bagNumber.add(iii);
-				chooseWeapon.addItem(actuallyWeaponList.get(g));
+				chooseWeapon.addItem(actuallyWeaponList.get(g).name);
 				g=g+1;
 				}
 		}
@@ -91,8 +92,8 @@ public class ChangeWeapon extends JFrame {
 		JTextArea eWeaponInfo = new JTextArea();
 		eWeaponInfo.setEditable(false);
 		eWeaponInfo.setBounds(70, 90, 450, 450);
-		eWeaponInfo.setText(equipedWeapon + " stats: \n" +
-		"LVL: " + equipedWeapon.LVL + "\n" +
+		eWeaponInfo.setText(equipedWeapon.name + " stats: \n" +
+		"LVL: " + equipedWeapon.itemLVL + "\n" +
 		" HP: " + equipedWeapon.HP + "\n" +
 		" MP: " + equipedWeapon.MP + "\n" +
 		" S: " + equipedWeapon.S + "\n" +
@@ -116,8 +117,8 @@ public class ChangeWeapon extends JFrame {
 		chooseWeapon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				numberOfChooseItem = chooseWeapon.getSelectedIndex();
-				newWeaponInfo.setText(actuallyWeaponList.get(numberOfChooseItem) + " stats: \n" +
-						"LVL: " + actuallyWeaponList.get(numberOfChooseItem).LVL + "\n" +
+				newWeaponInfo.setText(actuallyWeaponList.get(numberOfChooseItem).name + " stats: \n" +
+						"LVL: " + actuallyWeaponList.get(numberOfChooseItem).itemLVL + "\n" +
 						" HP: " + actuallyWeaponList.get(numberOfChooseItem).HP + "\n" +
 						" MP: " + actuallyWeaponList.get(numberOfChooseItem).MP + "\n" +
 						" S: " + actuallyWeaponList.get(numberOfChooseItem).S + "\n" +
@@ -132,6 +133,9 @@ public class ChangeWeapon extends JFrame {
 		});
 		
 		JButton changeWeapon = new JButton("CHANGE WEAPON");
+		changeWeapon.setBackground(Color.BLACK);
+		changeWeapon.setForeground(Color.RED);
+		changeWeapon.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 		changeWeapon.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
 				Character.equipWeapon(bagNumber.get(numberOfChooseItem));
@@ -141,8 +145,21 @@ public class ChangeWeapon extends JFrame {
 				dispose();
 			}
 		});
-		changeWeapon.setBounds(1043, 618, 200, 30);
+		changeWeapon.setBounds(949, 588, 294, 60);
 		contentPane.add(changeWeapon);
+		
+		JButton mainMenu = new JButton("MAIN MENU");
+		mainMenu.setBackground(Color.BLACK);
+		mainMenu.setForeground(Color.RED);
+		mainMenu.setFont(new Font("Times New Roman", Font.PLAIN, 25));
+		mainMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rpg.SaveLoad.save();
+				views.MainMenu.main();
+				dispose();
+			}});
+		mainMenu.setBounds(688, 588, 246, 60);
+		getContentPane().add(mainMenu);
 		
 		
 	}

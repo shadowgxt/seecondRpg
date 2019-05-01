@@ -47,7 +47,7 @@ public class StartMenu extends JFrame{
 		
 		txtChooseOption = new JTextField();
 		txtChooseOption.setBackground(Color.GRAY);
-		txtChooseOption.setFont(new Font("Times New Roman", Font.BOLD, 29));
+		txtChooseOption.setFont(new Font("Monotype Corsiva", Font.BOLD, 29));
 		txtChooseOption.setForeground(Color.BLUE);
 		txtChooseOption.setHorizontalAlignment(SwingConstants.CENTER);
 		txtChooseOption.setText("Choose option");
@@ -58,7 +58,7 @@ public class StartMenu extends JFrame{
 		JButton newGame = new JButton("New Game");
 		newGame.setBackground(Color.BLACK);
 		newGame.setForeground(Color.RED);
-		newGame.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		newGame.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		newGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Character.setHeroName();
@@ -70,7 +70,7 @@ public class StartMenu extends JFrame{
 		JButton loadGame = new JButton("Load Game");
 		loadGame.setBackground(Color.BLACK);
 		loadGame.setForeground(Color.RED);
-		loadGame.setFont(new Font("Old English Text MT", Font.PLAIN, 25));
+		loadGame.setFont(new Font("Monotype Corsiva", Font.PLAIN, 25));
 		loadGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				rpg.SaveLoad.load();
