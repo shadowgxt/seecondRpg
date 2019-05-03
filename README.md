@@ -1,7 +1,7 @@
 # seecondRpg
 rpgv2
 
-I wrote this application to working standalone and start learning aboiuit GUI in Java.
+I wrote this application to working standalone and start learning about GUI in Java.
 
 This time it was Swing - creating window applications.
 
